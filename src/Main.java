@@ -13,10 +13,23 @@ public class Main {
             if ("exit".equals(user)){
                 exit(0);
             }
+            while(!validateUser(user)) {
+                System.out.println("Please insert 'me' or enter key. Exit to quit: ");
+                user = player.next();
+            }
             GuessGame guessGame = ("me".equals(user)) ? new HumanGuessGame() : new ComputerGuessGame();
             guessGame.startGame();
         } while (true);
 
     }
 
+
+    public static boolean validateUser(String user){
+        if ("me".equals(user) || user.isEmpty()){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
+
