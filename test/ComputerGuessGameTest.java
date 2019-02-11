@@ -6,13 +6,13 @@ public class ComputerGuessGameTest {
     ComputerGuessGame cGame = new ComputerGuessGame();
 
     @Test
-    public void validateInvalidUserInputTest(){
+    public void validateIncorrectUserInputTest(){
         char invalidInput = 's';
         assertEquals(false, cGame.validateUserInput(invalidInput));
     }
 
     @Test
-    public void validateValidUserInputTest(){
+    public void validateCorrectUserInputTest(){
         char validInput = '+';
         assertEquals(true, cGame.validateUserInput(validInput));
     }
