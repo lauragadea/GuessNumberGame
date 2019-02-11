@@ -9,13 +9,16 @@ public class Main {
         do {
             Scanner player = new Scanner(System.in);
             System.out.println("Type 'me', if you want to guess a number. Otherwise, I will guess a number. Enter exit to quit. ");
-            String user = player.next();
+            String user = player.nextLine();
             if ("exit".equals(user)){
                 exit(0);
             }
             while(!validateUser(user)) {
                 System.out.println("Please insert 'me' or enter key. Exit to quit: ");
-                user = player.next();
+                user = player.nextLine();
+                if ("exit".equals(user)){
+                    exit(0);
+                }
             }
             GuessGame guessGame = ("me".equals(user)) ? new HumanGuessGame() : new ComputerGuessGame();
             guessGame.startGame();
